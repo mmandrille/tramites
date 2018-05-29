@@ -11,7 +11,7 @@ from .models import Tramite
 def home(request):
     return render(request, 'home.html', {})
 
-def wsg_organismos(request):
+def getws_organismos(request):
     r = requests.get('http://organigrama.jujuy.gob.ar/webserv_org')
     organismos = r.text
     return HttpResponse(organismos) 
