@@ -1,4 +1,4 @@
-function autocomplete(inp, arr) {
+function autocomplete(inp) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
@@ -16,16 +16,15 @@ function autocomplete(inp, arr) {
       /*append the DIV element as a child of the autocomplete container:*/
       this.parentNode.appendChild(a);
       /*for each item in the array...*/
-      for (i = 0; i < arr.length; i++) {
-        /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].toUpperCase().includes(val.toUpperCase()))
-         {
+      for (i = 0; i < tramites.length; i++) {
+        /*Buscamos si un nombre o descripcion incluye la palabra:*/
+        if  (tramites[i].toUpperCase().includes(val.toUpperCase()) || descripciones[i].toUpperCase().includes(val.toUpperCase())){
           /*create a DIV element for each matching element:*/
           b = document.createElement("DIV");
           /*make the matching letters bold:*/
-          b.innerHTML = arr[i];
+          b.innerHTML = tramites[i];
           /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "' id='" + i +"'>";
+          b.innerHTML += "<input type='hidden' value='" + tramites[i] + "' id='" + i +"'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
           b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
@@ -136,4 +135,4 @@ getJSON('/ws_tramites',
       );
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the tramites array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), tramites);
+autocomplete(document.getElementById("myInput"));
