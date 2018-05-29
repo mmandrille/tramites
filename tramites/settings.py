@@ -25,7 +25,7 @@ SECRET_KEY = 'eyf9r00nwbfn7av6%n!xffz(tg@v!a)-_(#n&zp07(j*8wce3%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'www.tramites.jujuy.gob.ar','tramites.jujuy.gob.ar']
 
 
 # Application definition
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #PlugIns Extras
+    'tinymce',
+    #Desarrollos personales
+    'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -103,9 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-AR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Jujuy'
 
 USE_I18N = True
 
@@ -116,5 +120,26 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+#Configuraciones Propias
+MEDIA_URL = 'archivos/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "archivos")
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static_source"),
+]
+
+#Sistema de accesos:
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = '/'
+
+# Configurar correos
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'mmandrille@gmail.com'
+EMAIL_HOST_PASSWORD = 'comoyoquiera15'
+
+#Actualizar Statics, no solo nuevas
+AWS_PRELOAD_METADATA = True
