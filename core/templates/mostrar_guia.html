@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="guia">
+    <h2>GUIA DE TRAMITES</h2>
+    <h3>{{ guia.nombre }}</h3>
+    {{ guia.descripcion | safe }}
+    <br>
+    <h4>Archivos Descargables:</h4>
+    {% for archivo in guia.archivos.all %}
+        <a href='/{{archivo.archivo.url}}'>{{ archivo.nombre }}</a><br>
+    {% endfor %}
+</div>
+{% endblock %}

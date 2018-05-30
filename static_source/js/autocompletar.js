@@ -123,13 +123,26 @@ var links = [];
 
 /*Obtenemos todos los tramites que tiene el sistema desde el web service:*/
 getJSON('/ws_tramites',
-        function(err, json) 
+        function(err, json_tr) 
         {
-          for (i = 0; i < json.data.length; i++) 
+          for (i = 0; i < json_tr.data.length; i++) 
           {
-            tramites[i] = json.data[i].nombre;
-            descripciones[i] = json.data[i].descripcion;
-            links[i] = json.data[i].link;
+            tramites[i] = json_tr.data[i].nombre;
+            descripciones[i] = json_tr.data[i].descripcion;
+            links[i] = json_tr.data[i].link;
+          }
+        }
+      );
+
+/*Obtenemos todos los tramites que tiene el sistema desde el web service:*/
+getJSON('/ws_guias',
+        function(err, json_gui) 
+        {
+          for (i = 0; i < json_gui.data.length; i++) 
+          {
+            tramites[tramites.length] = json_gui.data[i].nombre;
+            descripciones[descripciones.length] = json_gui.data[i].descripcion;
+            links[links.length] = json_gui.data[i].link;
           }
         }
       );

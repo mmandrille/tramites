@@ -6,7 +6,11 @@ app_name = 'core'
 urlpatterns = [
     #Personales
     url(r'^$', views.home, name='home'),
-    #url('test', views.getws_organismos, name='getws_organismos'),
+    path('guia/<int:id_guia>/', views.mostrar_guia, name='mostrar_guia'),
 
+    #Consumir un WebService Ajeno:
+#   url('test', views.getws_organismos, name='getws_organismos'),
+    #Web Services JSON:
     url('ws_tramites', views.ws_tramites, name="ws_tramites"),
+    url('ws_guias', views.ws_guias, name="ws_guias"),
 ]
