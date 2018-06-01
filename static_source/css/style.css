@@ -59,11 +59,3 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
-
-.guia {
-  position: absolute;
-  left: 33%;
-  margin-top: 50px;
-  max-width: 66%;
-  max-height: 70%;
-}
