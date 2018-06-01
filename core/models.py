@@ -1,21 +1,23 @@
 #Importamos modulos standars
+import json
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
 from tinymce.models import HTMLField
-
+import requests  
 #Import personales
 from tramites.settings import MEDIA_URL
 
 #Funcion que obtiene del sistema de organigrama los organismos disponibles
 #Choice Field
 def obtener_organismos():
-	CARGOS =    ((0,'Gobernador'), 
-            	(10,'Secretario'), (11, 'Secretaria'), (12, 'Subsecretario'), (13, 'SubScretaria'),
-                (21, 'Director'), (22, 'Directora'), 
-                (31, 'Coordinador'), (32, 'Coordinadora'),
-                (99, 'Administrativo'))
-	return CARGOS
+	r = requests.get('http://organigrama.jujuy.gob.ar/ws_org/')
+	orgs = json.loads(r.text)['data']
+	ORGANISMOS = []
+	for org in orgs:
+		ORGANISMOS+= [(org['id'],org['nombre'])]
+	return ORGANISMOS
+
 # Create your models here.
 class Tramite(models.Model):
 	nombre = models.CharField(max_length=50, unique=True)
@@ -54,7 +56,6 @@ class Guia(models.Model):
 			"link": '/guia/' + str(self.id),
 #			"icono": self.icono.url,
         }
-
 
 class Archivo(models.Model):
 	guia = models.ForeignKey(Guia, on_delete=models.CASCADE, related_name='archivos')
