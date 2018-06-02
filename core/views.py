@@ -23,8 +23,5 @@ def getws_organismos(request):
 
 def ws_tramites(request):
     tramites = [tr.as_dict() for tr in Tramite.objects.filter(activo=True)]
+    tramites+=[guia.as_dict() for guia in Guia.objects.filter(activo=True)]    
     return HttpResponse(json.dumps({"data": tramites}), content_type='application/json')
-
-def ws_guias(request):
-    guias = [guia.as_dict() for guia in Guia.objects.filter(activo=True)]    
-    return HttpResponse(json.dumps({"data": guias}), content_type='application/json')

@@ -39,6 +39,7 @@ class Tramite(models.Model):
 #			"icono": self.icono.url,
         }
 
+#String Default para la descripcion
 texto_default= '<p><strong>Detalle del Tramite</strong></p>\r\n<ul>\r\n<li>Destinatarios::</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>Finalidad del tr&aacute;mite:</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>&Aacute;rea / Dependencia:</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>Referente / Responsable:</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>Domicilio/s donde se realiza:</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>D&iacute;as y Horarios:</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>Requisitos a cumplimentar:</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>Formularios y Documentaci&oacute;n requerida:</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>Procedimiento:</li>\r\n</ul>\r\n<p style="padding-left: 60px;">&nbsp;</p>\r\n<ul>\r\n<li>Contacto</li>\r\n<ul>\r\n<li>Telefono:</li>\r\n<li>Email:</li>\r\n</ul>\r\n</ul>'
 
 class Guia(models.Model):

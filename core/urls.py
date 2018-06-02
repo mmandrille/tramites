@@ -12,5 +12,4 @@ urlpatterns = [
 #   url('test', views.getws_organismos, name='getws_organismos'),
     #Web Services JSON:
     url('ws_tramites', views.ws_tramites, name="ws_tramites"),
-    url('ws_guias', views.ws_guias, name="ws_guias"),
 ]

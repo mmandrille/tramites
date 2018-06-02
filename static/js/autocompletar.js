@@ -131,8 +131,7 @@ getJSON('/ws_tramites',
             descripciones[i] = json.data[i].descripcion;
             links[i] = json.data[i].link;
           }
+          /*initiate the autocomplete function on the "myInput" element, and pass along the tramites array as possible autocomplete values:*/
+          autocomplete(document.getElementById("myInput"));
         }
       );
-
-/*initiate the autocomplete function on the "myInput" element, and pass along the tramites array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"));
