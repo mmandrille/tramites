@@ -15,12 +15,6 @@ def mostrar_guia(request, id_guia):
     guia = Guia.objects.get(pk=id_guia)
     return render(request, 'mostrar_guia.html', {'guia': guia})
 
-
-def getws_organismos(request):
-    r = requests.get('http://organigrama.jujuy.gob.ar/webserv_org')
-    organismos = r.text
-    return HttpResponse(organismos) 
-
 def ws_tramites(request):
     tramites = [tr.as_dict() for tr in Tramite.objects.filter(activo=True)]
     tramites+=[guia.as_dict() for guia in Guia.objects.filter(activo=True)]    

@@ -56,7 +56,7 @@ class Guia(models.Model):
 		return {
             "nombre": self.nombre,
             "descripcion": self.descripcion,
-			"link": '/guia/' + str(self.id),
+			"link": 'http://tramites.jujuy.gob.ar/guia/' + str(self.id),
 #			"icono": self.icono.url,
         }
 
