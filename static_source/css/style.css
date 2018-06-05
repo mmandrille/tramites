@@ -59,3 +59,25 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
+
+/* Mostrar Guias de Tramites locales */
+.contenedor-guia {
+  position: absolute;
+  width: 600px;
+  height: 90vh;
+  left: 45%;
+  top: 5%;
+  margin: 0px 0 0 -220px;
+  border: 1px solid transparent;
+}
+.titulo-guia {
+  width: 580px;
+  border: 10px solid transparent;
+
+}
+.guia {
+  border: 15px solid transparent;
+  width: 580px;
+  height: 80vh;
+  overflow: auto;  
+}
