@@ -106,15 +106,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-
 LANGUAGE_CODE = 'es-AR'
-
 TIME_ZONE = 'America/Argentina/Jujuy'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -134,12 +129,17 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 
-# Configurar correos
+#Configuracion de Mail
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = ''
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'yourmail'
-EMAIL_HOST_PASSWORD = 'yourpassword'
+EMAIL_HOST_USER = 'tucorreo@dominio.com'
+EMAIL_HOST_PASSWORD = 'tupassword'
+#CREAR ARCHIVO credenciales.py solo para Sobre Escribir con las variables importadas
+try:
+    from .credenciales import *
+except ImportError:
+    pass
 
 #Actualizar Statics, no solo nuevas
 AWS_PRELOAD_METADATA = True
