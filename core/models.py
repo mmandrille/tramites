@@ -8,9 +8,8 @@ import requests
 #Import personales
 from tramites.settings import MEDIA_URL
 
-#Funcion que obtiene del sistema de organigrama los organismos disponibles
 #Choice Field
-def obtener_organismos():
+def obtener_organismos():#Funcion que obtiene del sistema de organigrama los organismos disponibles
 	r = requests.get('http://organigrama.jujuy.gob.ar/ws_org/')
 	orgs = json.loads(r.text)['data']
 	organismos = list()
