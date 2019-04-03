@@ -1,5 +1,6 @@
 #Importamos modulos standars
 import json
+from django.core.cache import cache
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
@@ -10,11 +11,14 @@ from tramites.settings import MEDIA_URL
 
 #Choice Field
 def obtener_organismos():#Funcion que obtiene del sistema de organigrama los organismos disponibles
-	r = requests.get('http://organigrama.jujuy.gob.ar/ws_org/')
-	orgs = json.loads(r.text)['data']
-	organismos = list()
-	for org in orgs:
-		organismos.append((org['id'],org['nombre']))
+	organismos = cache.get("organismos")
+	if organismos is None:
+		r = requests.get('http://organigrama.jujuy.gob.ar/ws_org/')
+		orgs = json.loads(r.text)['data']
+		organismos = list()
+		for org in orgs:
+			organismos.append((org['id'],org['nombre']))
+			cache.set("organismos", organismos, 10 * 60)  # guardar la data por 10 minutos, y después sola expira
 	return organismos
 
 # Create your models here.
